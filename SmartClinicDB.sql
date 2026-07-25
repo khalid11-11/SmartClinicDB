@@ -45,3 +45,12 @@ CREATE TABLE Appointment (
     CONSTRAINT fk_appointment_doctor
         FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID)
 );
+
+CREATE TABLE Treatment (
+    TreatmentID INT AUTO_INCREMENT PRIMARY KEY,
+    Diagnosis VARCHAR(200) NOT NULL,
+    Description VARCHAR(255),
+    AppointmentID INT NOT NULL UNIQUE,
+    CONSTRAINT fk_treatment_appointment
+        FOREIGN KEY (AppointmentID) REFERENCES Appointment(AppointmentID)
+);
