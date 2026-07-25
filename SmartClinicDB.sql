@@ -92,3 +92,18 @@ CREATE TABLE Payment (
     CONSTRAINT fk_payment_bill
         FOREIGN KEY (BillID) REFERENCES Bill(BillID)
 );
+
+
+INSERT INTO Person
+    (PersonID, FirstName, LastName, Phone, Address)
+VALUES
+    (1, 'Ahmed', 'Ali', '0532847195', 'Riyadh'),
+    (2, 'Sara', 'Mohammed', '0559182634', 'Jeddah'),
+    (3, 'Omar', 'Hassan', '0504762819', 'Dammam'),
+    (4, 'Lina', 'Khalid', '0573926158', 'Makkah'),
+    (5, 'Yousef', 'Saad', '0541873026', 'Madinah'),
+    (6, 'Fahad', 'Saleh', '0569238147', 'Riyadh'),
+    (7, 'Nora', 'Ahmed', '0584719263', 'Jeddah'),
+    (8, 'Majed', 'Omar', '0593827146', 'Taif'),
+    (9, 'Reem', 'Salem', '0516473829', 'Abha'),
+    (10, 'Hassan', 'Ali', '0529183746', 'Tabuk');
