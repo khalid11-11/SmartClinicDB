@@ -54,3 +54,9 @@ CREATE TABLE Treatment (
     CONSTRAINT fk_treatment_appointment
         FOREIGN KEY (AppointmentID) REFERENCES Appointment(AppointmentID)
 );
+
+CREATE TABLE Medicine (
+    MedicineID INT AUTO_INCREMENT PRIMARY KEY,
+    MedicineName VARCHAR(100) NOT NULL,
+    Price DECIMAL(8,2) NOT NULL
+);
