@@ -33,3 +33,15 @@ CREATE TABLE Doctor (
     CONSTRAINT fk_doctor_department
         FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID)
 );
+
+CREATE TABLE Appointment (
+    AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
+    AppointmentDate DATETIME NOT NULL,
+    Status VARCHAR(30) NOT NULL,
+    PatientID INT NOT NULL,
+    DoctorID INT NOT NULL,
+    CONSTRAINT fk_appointment_patient
+        FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
+    CONSTRAINT fk_appointment_doctor
+        FOREIGN KEY (DoctorID) REFERENCES Doctor(DoctorID)
+);
