@@ -60,3 +60,15 @@ CREATE TABLE Medicine (
     MedicineName VARCHAR(100) NOT NULL,
     Price DECIMAL(8,2) NOT NULL
 );
+
+CREATE TABLE Prescription (
+    PrescriptionID INT AUTO_INCREMENT PRIMARY KEY,
+    TreatmentID INT NOT NULL,
+    MedicineID INT NOT NULL,
+    Dosage VARCHAR(50) NOT NULL,
+    Duration VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_prescription_treatment
+        FOREIGN KEY (TreatmentID) REFERENCES Treatment(TreatmentID),
+    CONSTRAINT fk_prescription_medicine
+        FOREIGN KEY (MedicineID) REFERENCES Medicine(MedicineID)
+);
