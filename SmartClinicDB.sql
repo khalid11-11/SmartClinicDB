@@ -72,3 +72,12 @@ CREATE TABLE Prescription (
     CONSTRAINT fk_prescription_medicine
         FOREIGN KEY (MedicineID) REFERENCES Medicine(MedicineID)
 );
+
+CREATE TABLE Bill (
+    BillID INT AUTO_INCREMENT PRIMARY KEY,
+    BillDate DATE NOT NULL,
+    TotalAmount DECIMAL(10,2) NOT NULL,
+    TreatmentID INT NOT NULL UNIQUE,
+    CONSTRAINT fk_bill_treatment
+        FOREIGN KEY (TreatmentID) REFERENCES Treatment(TreatmentID)
+);
