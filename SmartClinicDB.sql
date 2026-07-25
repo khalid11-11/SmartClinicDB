@@ -13,3 +13,12 @@ CREATE TABLE Department (
     DepartmentID INT AUTO_INCREMENT PRIMARY KEY,
     DepartmentName VARCHAR(100) NOT NULL UNIQUE
 );
+
+CREATE TABLE Patient (
+    PatientID INT AUTO_INCREMENT PRIMARY KEY,
+    PersonID INT NOT NULL,
+    Gender ENUM('Male', 'Female') NOT NULL,
+    DOB DATE NOT NULL,
+    CONSTRAINT fk_patient_person
+        FOREIGN KEY (PersonID) REFERENCES Person(PersonID)
+);
