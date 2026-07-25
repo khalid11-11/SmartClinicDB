@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS SmartClinicDB;
 CREATE DATABASE SmartClinicDB;
 USE SmartClinicDB;
 
