@@ -8,3 +8,8 @@ CREATE TABLE Person (
     Phone VARCHAR(20) NOT NULL UNIQUE,
     Address VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE Department (
+    DepartmentID INT AUTO_INCREMENT PRIMARY KEY,
+    DepartmentName VARCHAR(100) NOT NULL UNIQUE
+);
