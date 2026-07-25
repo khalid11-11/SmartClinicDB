@@ -107,3 +107,89 @@ VALUES
     (8, 'Majed', 'Omar', '0593827146', 'Taif'),
     (9, 'Reem', 'Salem', '0516473829', 'Abha'),
     (10, 'Hassan', 'Ali', '0529183746', 'Tabuk');
+
+INSERT INTO Department
+    (DepartmentID, DepartmentName)
+VALUES
+    (1, 'Cardiology'),
+    (2, 'Dentistry'),
+    (3, 'Dermatology'),
+    (4, 'Neurology'),
+    (5, 'Pediatrics');
+
+INSERT INTO Patient
+    (PatientID, PersonID, Gender, DOB)
+VALUES
+    (1, 1, 'Male', '1998-05-10'),
+    (2, 2, 'Female', '2000-08-15'),
+    (3, 3, 'Male', '1995-11-20'),
+    (4, 6, 'Male', '1997-03-12'),
+    (5, 7, 'Female', '1999-09-25');
+
+INSERT INTO Doctor
+    (DoctorID, PersonID, Specialization, DepartmentID)
+VALUES
+    (1, 4, 'Cardiologist', 1),
+    (2, 5, 'Pediatrician', 5),
+    (3, 8, 'Dentist', 2),
+    (4, 9, 'Dermatologist', 3),
+    (5, 10, 'Neurologist', 4);
+
+
+INSERT INTO Appointment
+    (AppointmentID, AppointmentDate, Status, PatientID, DoctorID)
+VALUES
+    (1, '2025-05-01 09:00:00', 'Completed', 1, 1),
+    (2, '2025-05-02 10:00:00', 'Completed', 2, 2),
+    (3, '2025-05-03 11:00:00', 'Completed', 3, 3),
+    (4, '2025-05-04 13:00:00', 'Completed', 4, 4),
+    (5, '2025-05-05 14:00:00', 'Completed', 5, 5);
+
+INSERT INTO Treatment
+    (TreatmentID, Diagnosis, Description, AppointmentID)
+VALUES
+    (1, 'Flu', 'Medication and rest', 1),
+    (2, 'Tooth Pain', 'Dental filling', 2),
+    (3, 'Skin Allergy', 'Allergy treatment', 3),
+    (4, 'Migraine', 'Pain relief therapy', 4),
+    (5, 'Fever', 'Paracetamol prescribed', 5);
+
+
+INSERT INTO Medicine
+    (MedicineID, MedicineName, Price)
+VALUES
+    (1, 'Paracetamol', 15.00),
+    (2, 'Amoxicillin', 35.00),
+    (3, 'Ibuprofen', 20.00),
+    (4, 'Cetirizine', 18.00),
+    (5, 'Vitamin C', 25.00);
+
+
+INSERT INTO Prescription
+    (PrescriptionID, TreatmentID, MedicineID, Dosage, Duration)
+VALUES
+    (1, 1, 1, '500 mg', '5 Days'),
+    (2, 2, 2, '250 mg', '7 Days'),
+    (3, 3, 4, '10 mg', '10 Days'),
+    (4, 4, 3, '400 mg', '5 Days'),
+    (5, 5, 5, '1000 mg', '14 Days');
+
+
+INSERT INTO Bill
+    (BillID, BillDate, TotalAmount, TreatmentID)
+VALUES
+    (1, '2025-05-01', 150.00, 1),
+    (2, '2025-05-02', 300.00, 2),
+    (3, '2025-05-03', 220.00, 3),
+    (4, '2025-05-04', 180.00, 4),
+    (5, '2025-05-05', 120.00, 5);
+
+
+INSERT INTO Payment
+    (PaymentID, PaymentDate, Amount, Method, BillID)
+VALUES
+    (1, '2025-05-01', 150.00, 'Cash', 1),
+    (2, '2025-05-02', 300.00, 'Credit Card', 2),
+    (3, '2025-05-03', 220.00, 'Cash', 3),
+    (4, '2025-05-04', 180.00, 'Debit Card', 4),
+    (5, '2025-05-05', 120.00, 'Cash', 5);
