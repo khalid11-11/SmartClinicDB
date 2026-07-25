@@ -81,3 +81,14 @@ CREATE TABLE Bill (
     CONSTRAINT fk_bill_treatment
         FOREIGN KEY (TreatmentID) REFERENCES Treatment(TreatmentID)
 );
+
+
+CREATE TABLE Payment (
+    PaymentID INT AUTO_INCREMENT PRIMARY KEY,
+    PaymentDate DATE NOT NULL,
+    Amount DECIMAL(10,2) NOT NULL,
+    Method VARCHAR(30) NOT NULL,
+    BillID INT NOT NULL,
+    CONSTRAINT fk_payment_bill
+        FOREIGN KEY (BillID) REFERENCES Bill(BillID)
+);
