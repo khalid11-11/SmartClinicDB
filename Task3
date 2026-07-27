@@ -1,0 +1,39 @@
+-- ============================================
+-- CS350 - Smart Clinic Database Project
+-- Task 3: SQL Operations
+-- ============================================
+
+USE SmartClinicDB;
+
+-- ============================================
+-- 1. SELECT
+-- Purpose: Retrieves the name, gender, and date of birth for every registered patient.
+-- ============================================
+SELECT p.FirstName, p.LastName, pt.Gender, pt.DOB
+FROM person p
+JOIN patient pt ON p.PersonID = pt.PersonID;
+
+
+-- ============================================
+-- 2. JOIN
+-- Purpose: Shows which patient saw which doctor and on what date, joining across 5 tables.
+-- ============================================
+SELECT a.AppointmentID, a.AppointmentDate, 
+       CONCAT(pp.FirstName, ' ', pp.LastName) AS PatientName,
+       CONCAT(dp.FirstName, ' ', dp.LastName) AS DoctorName
+FROM appointment a
+JOIN patient pt ON a.PatientID = pt.PatientID
+JOIN person pp ON pt.PersonID = pp.PersonID
+JOIN doctor d ON a.DoctorID = d.DoctorID
+JOIN person dp ON d.PersonID = dp.PersonID;
+
+
+-- ============================================
+-- 3. NESTED QUERY (SUBQUERY)
+-- Purpose: Finds medicines priced above the clinic's average medicine price.
+-- ============================================
+SELECT MedicineName, Price
+FROM medicine
+WHERE Price > (SELECT AVG(Price) FROM medicine);
+
+
