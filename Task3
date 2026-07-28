@@ -37,3 +37,56 @@ FROM medicine
 WHERE Price > (SELECT AVG(Price) FROM medicine);
 
 
+-- ============================================
+-- 4. AGGREGATE FUNCTION + GROUP BY
+-- Purpose: Counts how many appointments each doctor has handled.
+-- ============================================
+SELECT d.DoctorID, dp.FirstName, dp.LastName, COUNT(a.AppointmentID) AS TotalAppointments
+FROM doctor d
+JOIN person dp ON d.PersonID = dp.PersonID
+JOIN appointment a ON d.DoctorID = a.DoctorID
+GROUP BY d.DoctorID, dp.FirstName, dp.LastName;
+
+
+-- ============================================
+-- 5. UPDATE AND DELETE
+-- Purpose (UPDATE): Updates an appointment's status to demonstrate data modification.
+-- Purpose (DELETE): Removes a specific payment record to demonstrate deletion.
+-- ============================================
+
+-- Before UPDATE
+SELECT * FROM appointment WHERE AppointmentID = 3;
+
+-- UPDATE
+UPDATE appointment SET Status = 'Rescheduled' WHERE AppointmentID = 3;
+
+-- After UPDATE
+SELECT * FROM appointment WHERE AppointmentID = 3;
+
+-- Before DELETE
+SELECT * FROM payment WHERE PaymentID = 4;
+
+-- DELETE
+DELETE FROM payment WHERE PaymentID = 4;
+
+-- After DELETE
+SELECT * FROM payment WHERE PaymentID = 4;
+
+-- ============================================
+-- 6. VIEW
+-- Purpose: Creates a reusable view summarizing each bill with the associated patient's name.
+-- ============================================
+CREATE VIEW BillSummary AS
+SELECT b.BillID, CONCAT(pp.FirstName, ' ', pp.LastName) AS PatientName, 
+       b.TotalAmount, b.BillDate
+FROM bill b
+JOIN treatment t ON b.TreatmentID = t.TreatmentID
+JOIN appointment a ON t.AppointmentID = a.AppointmentID
+JOIN patient pt ON a.PatientID = pt.PatientID
+JOIN person pp ON pt.PersonID = pp.PersonID;
+
+-- View the output
+SELECT * FROM BillSummary;
+
+
+
