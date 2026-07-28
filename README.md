@@ -3,6 +3,7 @@ Hello welcome to the project of SEU students
 The project name: SmartClinicDB for the CS350 Course
 
 Data of students:
+
 Student Name: Othman Sulaiman Alnomair
 Student ID:240041737
 
