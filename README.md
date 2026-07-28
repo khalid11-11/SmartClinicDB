@@ -14,5 +14,5 @@ CRN for this course:
 
 ## Project Artifacts
 
-- **Live Report Document (Google Docs):** [Click here to view]([YOUR_GOOGLE_DOC_LINK_HERE](https://docs.google.com/document/d/1ooBUKFxEy9DfebaVLSU4HGeCBtrmIO6oYpAYwWpLBF8/edit?tab=t.0))
-- **GitHub Repository:** (this repo)
+- **Live Report Document (Google Docs):** [Click here to view](https://docs.google.com/document/d/1ooBUKFxEy9DfebaVLSU4HGeCBtrmIO6oYpAYwWpLBF8/edit?tab=t.0)
+- **GitHub Repository:** [Click here to view] ()
