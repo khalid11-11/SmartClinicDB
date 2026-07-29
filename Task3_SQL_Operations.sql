@@ -106,3 +106,17 @@ BEGIN
   WHERE AppointmentID = NEW.AppointmentID;
 END//
 DELIMITER ;
+
+-- Test data to demonstrate the trigger firing
+INSERT INTO appointment (AppointmentDate, Status, PatientID, DoctorID)
+VALUES ('2025-05-06 10:00:00', 'Scheduled', 1, 2);
+
+-- Before treatment insert (Status should be 'Scheduled')
+SELECT * FROM appointment WHERE AppointmentID = 6;
+
+-- Insert treatment (this fires the trigger)
+INSERT INTO treatment (Diagnosis, Description, AppointmentID)
+VALUES ('Checkup', 'Routine follow-up', 6);
+
+-- After treatment insert (Status should now be 'Completed')
+SELECT * FROM appointment WHERE AppointmentID = 6;
