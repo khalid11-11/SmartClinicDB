@@ -99,3 +99,10 @@ DELIMITER //
 CREATE TRIGGER after_treatment_insert
 AFTER INSERT ON treatment
 FOR EACH ROW
+       
+BEGIN
+  UPDATE appointment
+  SET Status = 'Completed'
+  WHERE AppointmentID = NEW.AppointmentID;
+END//
+DELIMITER ;
