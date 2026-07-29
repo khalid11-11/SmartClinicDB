@@ -90,3 +90,12 @@ SELECT * FROM BillSummary;
 
 
 
+-- ============================================
+-- 7. TRIGGER
+-- Purpose: Automatically updates an appointment's status to "Completed" the moment
+-- a treatment is recorded for it.
+-- ============================================
+DELIMITER //
+CREATE TRIGGER after_treatment_insert
+AFTER INSERT ON treatment
+FOR EACH ROW
